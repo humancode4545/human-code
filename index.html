@@ -71,34 +71,25 @@ body{
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
-  padding:1rem 1.8rem;
+  padding:1.2rem 1.5rem;
   border-bottom:1px solid transparent;
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  transition:background .4s ease,border-color .4s ease,backdrop-filter .4s ease;
+  will-change:background;
+  transition:border-color .4s,background .4s;
 }
-nav.scrolled{
-  background:rgba(0,0,0,.88);
-  border-color:rgba(184,151,42,.10);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-}
+nav.scrolled{background:rgba(0,0,0,.92);border-color:var(--border)}
 .nav-logo{
-  min-height:64px;
-  display:flex;align-items:center;
   text-decoration:none;
+  min-height:44px;display:flex;align-items:center;
+}
+.nav-logo-img{
+  width:44px;height:44px;
+  object-fit:contain;
+  display:block;
 }
 .nav-logo-brain{
-  width:64px;height:64px;
+  width:44px;height:44px;
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;
-  filter:drop-shadow(0 0 6px rgba(184,151,42,.14)) drop-shadow(0 0 18px rgba(184,151,42,.06));
-  transition:transform .35s ease,filter .35s ease,opacity .35s ease;
-  will-change:transform;
-}
-.nav-logo:hover .nav-logo-brain{
-  transform:scale(1.04);
-  filter:drop-shadow(0 0 10px rgba(212,175,90,.24)) drop-shadow(0 0 24px rgba(212,175,90,.10));
 }
 .nav-logo-brain svg{width:100%;height:100%;display:block}
 
@@ -470,20 +461,10 @@ footer{
 .img-placeholder svg{opacity:.28}
 .img-placeholder span{font-size:.65rem;letter-spacing:.3em;opacity:.4;text-transform:uppercase}
 
-@media(max-width:640px){
-  nav{padding:.9rem 1.2rem}
-  .nav-logo{min-height:54px}
-  .nav-logo-brain{width:54px;height:54px}
-  .nav-logo-img{width:54px;height:54px}
-  section{padding:4rem 1.2rem}
-  .card-body{padding:1.1rem}
-  .payment-box{padding:1.8rem 1.2rem}
-}
 @media(max-width:380px){
-  nav{padding:.9rem 1rem}
-  .nav-logo{min-height:54px}
-  .nav-logo-brain{width:54px;height:54px}
-  .nav-logo-img{width:54px;height:54px}
+  nav{padding:1rem 1.2rem}
+  .nav-links{gap:1rem}
+  .nav-links a{font-size:.65rem}
   section{padding:4rem 1.2rem}
   .card-body{padding:1.1rem}
   .payment-box{padding:1.8rem 1.2rem}
@@ -517,14 +498,14 @@ footer{
   <a href="#hero" class="nav-logo" aria-label="Human Code inicio">
     <div class="nav-logo-brain">
       <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="60" cy="60" r="54" stroke="rgba(184,151,42,0.18)" stroke-width="1"/>
+        <circle cx="60" cy="60" r="54" stroke="rgba(184,151,42,0.25)" stroke-width="1.2"/>
         <path d="M52 28 C36 30,28 42,28 56 C28 66,33 73,40 78 C35 86,38 94,48 96" stroke="url(#goldGradient)" stroke-width="2" stroke-linecap="round"/>
-        <path d="M45 38 C36 44,36 54,44 60" stroke="url(#goldGradient)" stroke-width="1.4" stroke-linecap="round" opacity=".8"/>
-        <path d="M43 67 C36 72,38 82,48 86" stroke="url(#goldGradient)" stroke-width="1.4" stroke-linecap="round" opacity=".8"/>
+        <path d="M45 38 C36 44,36 54,44 60" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M43 67 C36 72,38 82,48 86" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"/>
         <path d="M68 28 C84 30,92 42,92 56 C92 66,87 73,80 78 C85 86,82 94,72 96" stroke="url(#goldGradient)" stroke-width="2" stroke-linecap="round"/>
-        <path d="M75 38 C84 44,84 54,76 60" stroke="url(#goldGradient)" stroke-width="1.4" stroke-linecap="round" opacity=".8"/>
-        <path d="M77 67 C84 72,82 82,72 86" stroke="url(#goldGradient)" stroke-width="1.4" stroke-linecap="round" opacity=".8"/>
-        <line x1="60" y1="24" x2="60" y2="96" stroke="rgba(220,220,220,0.14)" stroke-width="1"/>
+        <path d="M75 38 C84 44,84 54,76 60" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M77 67 C84 72,82 82,72 86" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="60" y1="24" x2="60" y2="96" stroke="rgba(220,220,220,0.18)" stroke-width="1"/>
         <text x="60" y="64" text-anchor="middle" font-size="13" letter-spacing="4" fill="#d4af5a" font-family="Rajdhani, sans-serif">HC</text>
         <defs>
           <linearGradient id="goldGradient" x1="0" y1="0" x2="120" y2="120">
@@ -561,256 +542,17 @@ footer{
   </div>
 </section>
 
-<!-- FILOSOFÍA -->
+<!-- PHILOSOPHY -->
 <section id="philosophy" aria-label="Filosofía">
 <div class="sec-wrap">
-  <span class="section-label">Human Code</span>
-  <h2 class="section-title">Conocimiento diseñado para la vida moderna.</h2>
+  <p class="section-label">Nuestra filosofía</p>
+  <h2 class="section-title">El conocimiento<br>como herramienta real.</h2>
   <div class="section-divider" aria-hidden="true"></div>
   <div class="philosophy-grid">
     <div class="phil-card">
-      <h3>Psicología real</h3>
-      <p>Libros diseñados para entender comportamiento humano, manipulación, emociones, mente y relaciones modernas.</p>
+      <h3>Psicología aplicada</h3>
+      <p>Comprender el comportamiento humano no es un lujo intelectual — es una ventaja estratégica en cada área de la vida. Nuestros recursos traducen la ciencia psicológica en herramientas concretas y accionables.</p>
     </div>
     <div class="phil-card">
-      <h3>Educación útil</h3>
-      <p>Información práctica enfocada en pensamiento, inteligencia emocional y crecimiento personal real.</p>
-    </div>
-    <div class="phil-card">
-      <h3>Minimalismo intelectual</h3>
-      <p>Diseño limpio, lectura directa y contenido pensado para personas que buscan profundidad sin ruido.</p>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- CATÁLOGO -->
-<section id="catalog" aria-label="Catálogo de libros">
-<div class="sec-wrap">
-  <span class="section-label">Catálogo</span>
-  <h2 class="section-title">Libros digitales</h2>
-  <div class="section-divider" aria-hidden="true"></div>
-  <div class="catalog-intro">
-    <p>Cada libro fue creado para ayudarte a comprender mejor la mente humana, las emociones, las relaciones y el comportamiento moderno.</p>
-  </div>
-  <div class="books-grid" id="booksGrid">
-
-    <!-- LIBRO 1 -->
-    <article class="book-card">
-      <div class="swiper-wrap">
-        <div class="swiper-track">
-          <img src="images/Portada.webp"
-            alt="Portada del libro"
-        class="book-image"
-    <div class="swiper-track">
-
-    <div class="swiper-slide">
-        <img src="images/Portada.webp"
-        alt="Portada del libro"
-        class="book-image">
-    </div>
-
-    <div class="swiper-slide">
-        <img src="images/Índice.webp"
-        alt="Índice del libro"
-        class="book-image">
-    </div>
-
-        </div>
-      
-      </div>
-      
-          </div>
-        </div>
-        <button type="button" class="swipe-btn prev" aria-label="Imagen anterior">&#8592;</button>
-        <button type="button" class="swipe-btn next" aria-label="Imagen siguiente">&#8594;</button>
-        <div class="swipe-hint" aria-hidden="true">
-          <div class="swipe-dot active"></div>
-          <div class="swipe-dot"></div>
-        </div>
-      </div>
-      <div class="card-body">
-        <p class="card-tag">Psicología</p>
-        <h3 class="card-title">como el entorno programa La mente humana</h3>
-      
-        <p class="card-price">$11 <span>USD</span></p>
-        <div class="card-actions">
-          <a href="https://t.me/HumancodeNet" target="_blank" rel="noopener noreferrer" class="btn btn-tg">
-            <svg width="16" height="16" aria-hidden="true"><use href="#ico-tg"/></svg>
-            Telegram
-          </a>
-          <a href="https://wa.me/message/ZUZ4PI254OXXC1" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
-            <svg width="16" height="16" aria-hidden="true"><use href="#ico-wa"/></svg>
-            WhatsApp
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <!-- LIBRO 2 -->
-    <article class="book-card">
-      <div class="swiper-wrap">
-        <div class="swiper-track">
-          <div class="swiper-slide">
-            <div class="img-placeholder">
-              <svg width="42" height="42" aria-hidden="true"><use href="#ico-book"/></svg>
-              <span>PORTADA</span>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="img-placeholder">
-              <svg width="42" height="42" aria-hidden="true"><use href="#ico-lines"/></svg>
-              <span>ÍNDICE</span>
-            </div>
-          </div>
-        </div>
-        <button type="button" class="swipe-btn prev" aria-label="Imagen anterior">&#8592;</button>
-        <button type="button" class="swipe-btn next" aria-label="Imagen siguiente">&#8594;</button>
-        <div class="swipe-hint" aria-hidden="true">
-          <div class="swipe-dot active"></div>
-          <div class="swipe-dot"></div>
-        </div>
-      </div>
-      <div class="card-body">
-        <p class="card-tag">Mentalidad</p>
-        <h3 class="card-title">Inteligencia Emocional Moderna</h3>
-        <p class="card-desc">Aprende control emocional, estabilidad mental y comprensión profunda de emociones humanas.</p>
-        <p class="card-price">$10 <span>USD</span></p>
-        <div class="card-actions">
-          <a href="https://t.me/HumancodeNet" target="_blank" rel="noopener noreferrer" class="btn btn-tg">
-            <svg width="16" height="16" aria-hidden="true"><use href="#ico-tg"/></svg>
-            Telegram
-          </a>
-          <a href="https://wa.me/message/ZUZ4PI254OXXC1" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
-            <svg width="16" height="16" aria-hidden="true"><use href="#ico-wa"/></svg>
-            WhatsApp
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <!-- LIBRO 3 -->
-    <article class="book-card">
-      <div class="swiper-wrap">
-        <div class="swiper-track">
-          <div class="swiper-slide">
-            <div class="img-placeholder">
-              <svg width="42" height="42" aria-hidden="true"><use href="#ico-book"/></svg>
-              <span>PORTADA</span>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="img-placeholder">
-              <svg width="42" height="42" aria-hidden="true"><use href="#ico-lines"/></svg>
-              <span>ÍNDICE</span>
-            </div>
-          </div>
-        </div>
-        <button type="button" class="swipe-btn prev" aria-label="Imagen anterior">&#8592;</button>
-        <button type="button" class="swipe-btn next" aria-label="Imagen siguiente">&#8594;</button>
-        <div class="swipe-hint" aria-hidden="true">
-          <div class="swipe-dot active"></div>
-          <div class="swipe-dot"></div>
-        </div>
-      </div>
-      <div class="card-body">
-        <p class="card-tag">Conducta Humana</p>
-        <h3 class="card-title">Código del Comportamiento Humano</h3>
-        <p class="card-desc">Descubre patrones mentales, decisiones, comportamiento social y psicología cotidiana.</p>
-        <p class="card-price">$15 <span>USD</span></p>
-        <div class="card-actions">
-          <a href="https://t.me/HumancodeNet" target="_blank" rel="noopener noreferrer" class="btn btn-tg">
-            <svg width="16" height="16" aria-hidden="true"><use href="#ico-tg"/></svg>
-            Telegram
-          </a>
-          <a href="https://wa.me/message/ZUZ4PI254OXXC1" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
-            <svg width="16" height="16" aria-hidden="true"><use href="#ico-wa"/></svg>
-            WhatsApp
-          </a>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</div>
-</section>
-
-<!-- CONTACTO -->
-<section id="contact" aria-label="Contacto">
-<div class="sec-wrap">
-  <span class="section-label">Contacto</span>
-  <h2 class="section-title">Acceso privado a los libros.</h2>
-  <div class="section-divider" aria-hidden="true"></div>
-  <div class="contact-wrap">
-    <p>Todos los libros son digitales y el acceso se entrega directamente por Telegram o WhatsApp.</p>
-    <div class="contact-btns">
-      <a href="https://t.me/HumancodeNet" target="_blank" rel="noopener noreferrer" class="btn btn-tg">
-        <svg width="16" height="16" aria-hidden="true"><use href="#ico-tg"/></svg>
-        Telegram
-      </a>
-      <a href="https://wa.me/message/ZUZ4PI254OXXC1" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
-        <svg width="16" height="16" aria-hidden="true"><use href="#ico-wa"/></svg>
-        WhatsApp
-      </a>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p class="footer-logo">HUMAN CODE</p>
-  <p class="footer-tag">Psicología • Educación • Inteligencia</p>
-  <p class="footer-copy">&copy; 2026 HUMAN CODE</p>
-</footer>
-
-<script>
-(function(){
-'use strict';
-var nav=document.getElementById('nav');
-var ticking=false;
-function onScroll(){
-  if(!ticking){
-    requestAnimationFrame(function(){
-      nav.classList.toggle('scrolled',window.scrollY>20);
-      ticking=false;
-    });
-    ticking=true;
-  }
-}
-window.addEventListener('scroll',onScroll,{passive:true});
-
-var prefersReduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('click',function(e){
-    var target=document.querySelector(this.getAttribute('href'));
-    if(!target)return;
-    e.preventDefault();
-    if(prefersReduced){target.scrollIntoView();return;}
-    target.scrollIntoView({behavior:'smooth',block:'start'});
-  });
-});
-
-document.querySelectorAll('.swiper-wrap').forEach(function(wrap){
-  var track=wrap.querySelector('.swiper-track');
-  var dots=wrap.querySelectorAll('.swipe-dot');
-  var total=track.children.length;
-  var cur=0;
-  var sx=0,sy=0,moving=false;
-  function go(n){
-    cur=(n+total)%total;
-    track.style.transform='translateX(-'+cur*100+'%)';
-    dots.forEach(function(d,i){d.classList.toggle('active',i===cur)});
-  }
-  wrap.querySelector('.prev').addEventListener('click',function(e){e.stopPropagation();go(cur-1)});
-  wrap.querySelector('.next').addEventListener('click',function(e){e.stopPropagation();go(cur+1)});
-  dots.forEach(function(d,i){d.addEventListener('click',function(){go(i)})});
-  track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;moving=false;},{passive:true});
-  track.addEventListener('touchmove',function(e){if(!moving){var dx=Math.abs(e.touches[0].clientX-sx);var dy=Math.abs(e.touches[0].clientY-sy);if(dx>dy&&dx>8){moving=true;}}},{passive:true});
-  track.addEventListener('touchend',function(e){var dx=sx-e.changedTouches[0].clientX;if(moving&&Math.abs(dx)>36)go(cur+(dx>0?1:-1));moving=false;},{passive:true});
-});
-
-})();
-</script>
-</body>
-</html>
+      <h3>Educación sin filtros</h3>
+      <p>El conocimiento que importa rara vez es
