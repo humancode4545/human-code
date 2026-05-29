@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<!-- 
+  HUMAN CODE — GitHub Pages
+  ─────────────────────────
+  INSTRUCCIONES DE DEPLOY:
+  1. Renombra este archivo a: index.html
+  2. Sube a tu repositorio GitHub
+  3. Ve a Settings → Pages → Source: main branch / root
+  4. Crea un archivo vacío llamado .nojekyll en la raíz
+  5. Reemplaza TU-USUARIO y TU-REPOSITORIO con tus datos reales
+  ─────────────────────────
+-->
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>HUMAN CODE</title>
+<meta name="description" content="HUMAN CODE — Psicología y educación para la vida moderna real. Libros digitales de psicología, comportamiento humano y educación intelectual.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://TU-USUARIO.github.io/TU-REPOSITORIO/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HUMAN CODE">
+<meta property="og:description" content="Psicología y educación para la vida moderna real.">
+<meta property="og:url" content="https://TU-USUARIO.github.io/TU-REPOSITORIO/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HUMAN CODE">
+<meta name="twitter:description" content="Psicología y educación para la vida moderna real.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#000;
+  --surface:#080808;
+  --surface2:#0f0f0f;
+  --surface3:#141414;
+  --border:#1c1c1c;
+  --silver:#c8c8c8;
+  --silver-dim:#888;
+  --silver-bright:#e8e8e8;
+  --gold:#b8972a;
+  --gold-light:#d4af5a;
+  --text:#a0a0a0;
+  --tg:#229ED9;
+}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  background:var(--black);
+  color:var(--text);
+  font-family:'Rajdhani','Arial Narrow',Arial,sans-serif;
+  font-weight:400;
+  line-height:1.6;
+  overflow-x:hidden;
+  overscroll-behavior-y:contain;
+  -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:var(--gold)}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 1.5rem;
+  border-bottom:1px solid transparent;
+  will-change:background;
+  transition:border-color .4s,background .4s;
+}
+nav.scrolled{background:rgba(0,0,0,.92);border-color:var(--border)}
+.nav-logo{
+  text-decoration:none;
+  min-height:44px;display:flex;align-items:center;
+}
+.nav-logo-img{
+  width:44px;height:44px;
+  object-fit:contain;
+  display:block;
+}
+.nav-logo-brain{
+  width:44px;height:44px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.nav-logo-brain svg{width:100%;height:100%;display:block}
+
+
+.nav-links a{
+  font-size:.72rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--silver-dim);text-decoration:none;
+  transition:color .3s;
+  min-height:44px;display:flex;align-items:center;
+}
+.nav-links a:hover{color:var(--gold-light)}
+
+#hero{
+  min-height:100vh;min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+  padding:5rem 1.5rem 5rem;
+  position:relative;
+  overflow:hidden;
+  background:#000;
+}
+
+.hero-spotlight{
+  position:absolute;
+  top:-10%;left:50%;
+  transform:translateX(-50%);
+  width:min(340px,70vw);
+  height:75%;
+  background:radial-gradient(ellipse 50% 100% at 50% 0%,rgba(210,210,210,.09) 0%,rgba(160,160,160,.04) 35%,transparent 70%);
+  pointer-events:none;z-index:0;
+}
+
+.hero-floor{
+  position:absolute;
+  bottom:0;left:0;right:0;height:38%;
+  background:radial-gradient(ellipse 60% 60% at 50% 100%,rgba(14,14,14,.95) 0%,transparent 70%);
+  pointer-events:none;z-index:0;
+}
+
+.hero-arc{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-54%);
+  width:min(520px,88vw);
+  aspect-ratio:1;
+  border:1px solid rgba(200,200,200,.06);
+  border-radius:50%;
+  pointer-events:none;z-index:0;
+}
+.hero-arc::before{
+  content:'';
+  position:absolute;inset:-1px;
+  border-radius:50%;
+  background:linear-gradient(180deg,rgba(184,151,42,.12) 0%,transparent 45%);
+  -webkit-mask:linear-gradient(180deg,#000 0%,transparent 55%);
+  mask:linear-gradient(180deg,#000 0%,transparent 55%);
+}
+
+.hero-vline-top{
+  position:absolute;
+  top:0;left:50%;transform:translateX(-50%);
+  width:1px;
+  height:28%;
+  background:linear-gradient(180deg,transparent 0%,rgba(200,200,200,.18) 60%,rgba(184,151,42,.35) 100%);
+  pointer-events:none;z-index:1;
+}
+
+.hero-vline-bot{
+  position:absolute;
+  bottom:12%;left:50%;transform:translateX(-50%);
+  width:1px;height:14%;
+  background:repeating-linear-gradient(
+    180deg,
+    rgba(184,151,42,.4) 0px,
+    rgba(184,151,42,.4) 4px,
+    transparent 4px,
+    transparent 10px
+  );
+  pointer-events:none;z-index:1;
+}
+
+.hero-content{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;align-items:center;
+}
+
+.hero-title{
+  font-family:'Rajdhani','Arial Narrow',Arial,sans-serif;
+  font-size:clamp(3rem,15vw,8.5rem);
+  font-weight:600;
+  letter-spacing:.38em;
+  line-height:1.08;
+  text-indent:.38em;
+  animation:fadeUp .9s .1s ease both;
+  display:flex;flex-direction:column;align-items:center;
+  gap:0;
+}
+.hero-title span{
+  display:block;
+  background:linear-gradient(180deg,
+    #ffffff 0%,
+    var(--silver-bright) 25%,
+    var(--silver) 55%,
+    rgba(160,160,160,.75) 100%
+  );
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  width:100%;text-align:center;
+}
+.hero-title .title-sep{display:none}
+
+.hero-divider{
+  width:min(500px,82vw);height:1px;
+  position:relative;
+  margin:2.2rem auto 2rem;
+  animation:fadeUp .9s .25s ease both;
+}
+.hero-divider::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(184,151,42,.12) 18%,
+    rgba(212,175,90,.7) 48%,
+    rgba(255,235,130,.95) 50%,
+    rgba(212,175,90,.7) 52%,
+    rgba(184,151,42,.12) 82%,
+    transparent 100%
+  );
+}
+.hero-divider::after{
+  content:'';
+  position:absolute;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  width:4px;height:4px;
+  background:#fff;
+  border-radius:50%;
+  box-shadow:0 0 6px 3px rgba(212,175,90,.6),0 0 14px 4px rgba(212,175,90,.25);
+}
+
+.hero-tagline{
+  font-family:'Rajdhani','Arial Narrow',Arial,sans-serif;
+  font-size:clamp(.62rem,2.4vw,.72rem);
+  font-weight:400;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:rgba(136,136,136,.75);
+  text-align:center;
+  line-height:2;
+  text-indent:.32em;
+  animation:fadeUp .9s .35s ease both;
+}
+
+.hero-scroll{
+  position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  opacity:.35;animation:fadeUp 1s .6s ease both;
+  pointer-events:none;
+}
+.hero-scroll span{font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.scroll-dot{
+  width:4px;height:4px;border-radius:50%;
+  background:var(--gold);
+  animation:scrollPulse 2.4s ease-in-out infinite;
+}
+
+.hero-eyebrow{display:none}
+
+.sec-wrap{width:100%;margin:0 auto}
+
+section{padding:5rem 1.5rem;contain:layout style}
+.section-label{
+  display:block;
+  font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;
+  color:var(--gold);opacity:.7;margin-bottom:.9rem;
+}
+.section-title{
+  font-family:'Cormorant Garamond','Georgia',serif;
+  font-size:clamp(1.8rem,6vw,2.8rem);
+  font-weight:300;letter-spacing:.06em;
+  color:var(--silver-bright);
+  line-height:1.15;
+  margin-bottom:1.6rem;
+}
+.section-divider{
+  width:40px;height:1px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  margin-bottom:2.4rem;
+}
+
+#philosophy{background:var(--surface)}
+#philosophy .sec-wrap{max-width:700px}
+.philosophy-grid{display:grid;gap:2rem}
+.phil-card{
+  border-left:1px solid var(--gold);
+  padding-left:1.4rem;
+  transition:opacity .4s ease,transform .4s ease;
+}
+.phil-card.visible{opacity:1;transform:none}
+.phil-card h3{
+  font-family:'Cormorant Garamond','Georgia',serif;
+  font-size:1.2rem;font-weight:400;
+  color:var(--silver);letter-spacing:.04em;
+  margin-bottom:.5rem;
+}
+.phil-card p{font-size:.9rem;line-height:1.7;color:var(--text)}
+
+#catalog{background:var(--black)}
+#catalog .sec-wrap{max-width:1000px}
+.catalog-intro{margin:0 0 3rem}
+.catalog-intro p{font-size:.9rem;line-height:1.8;color:var(--text)}
+.books-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));
+  gap:1.5rem;
+}
+
+.book-card{
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:4px;
+  overflow:hidden;
+  transition:border-color .3s;
+  contain:layout style;
+}
+.book-card:hover{border-color:rgba(184,151,42,.3)}
+
+.swiper-wrap{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--surface3)}
+.swiper-track{
+  display:flex;
+  transition:transform .38s cubic-bezier(.25,.46,.45,.94);
+  height:100%;
+}
+.swiper-slide{min-width:100%;height:100%;position:relative;overflow:hidden}
+.swiper-slide img{
+  width:100%;height:100%;object-fit:cover;
+  display:block;
+  aspect-ratio:3/4;
+}
+.swipe-hint{
+  position:absolute;bottom:.8rem;right:.8rem;
+  display:flex;gap:.3rem;z-index:2;
+}
+.swipe-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.22);
+  transition:background .25s;cursor:pointer;
+}
+.swipe-dot.active{background:var(--gold)}
+.swipe-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(0,0,0,.48);border:none;
+  color:var(--silver);font-size:.9rem;
+  width:36px;height:44px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;z-index:2;
+  transition:background .2s;
+}
+.swipe-btn:active{background:rgba(0,0,0,.8)}
+.swipe-btn.prev{left:0}
+.swipe-btn.next{right:0}
+
+.card-body{padding:1.4rem}
+.card-tag{
+  font-size:.58rem;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--gold);opacity:.7;margin-bottom:.6rem;
+}
+.card-title{
+  font-family:'Cormorant Garamond','Georgia',serif;
+  font-size:1.35rem;font-weight:400;
+  color:var(--silver-bright);letter-spacing:.03em;
+  margin-bottom:.7rem;line-height:1.3;
+}
+.card-desc{font-size:.82rem;line-height:1.7;color:var(--text);margin-bottom:1.2rem}
+.card-price{
+  font-size:1.1rem;font-weight:600;letter-spacing:.06em;
+  color:var(--gold-light);margin-bottom:1.2rem;
+}
+.card-price span{font-size:.65rem;letter-spacing:.2em;color:var(--silver-dim)}
+.card-actions{display:flex;gap:.7rem;flex-direction:column}
+
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
+  min-height:46px;padding:.6rem 1rem;
+  border-radius:2px;
+  font-family:'Rajdhani','Arial Narrow',Arial,sans-serif;
+  font-size:.75rem;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;
+  text-decoration:none;
+  border:none;cursor:pointer;
+  transition:opacity .2s,transform .15s;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+  user-select:none;
+}
+.btn:active{transform:scale(.96);opacity:.85}
+.btn-tg{
+  background:linear-gradient(135deg,#c9a227 0%,#f0d060 40%,#d4af37 60%,#a07820 100%);
+  color:#1a1400;
+  text-shadow:0 1px 1px rgba(255,220,80,.2);
+  box-shadow:0 2px 14px rgba(184,151,42,.35);
+}
+.btn-wa{
+  background:var(--surface3);
+  color:var(--silver-dim);
+  border:1px solid var(--border);
+}
+.btn svg{width:16px;height:16px;flex-shrink:0}
+
+#payment{background:var(--surface)}
+#payment .sec-wrap{max-width:600px}
+.payment-box{
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:2.5rem 1.8rem;
+  position:relative;overflow:hidden;
+}
+.payment-box::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.pay-item{
+  display:flex;gap:1rem;align-items:flex-start;
+  padding:1.2rem 0;
+  border-bottom:1px solid var(--border);
+}
+.pay-item:last-child{border-bottom:none}
+.pay-icon{font-size:1.1rem;margin-top:.15rem;flex-shrink:0;width:26px;text-align:center;color:var(--gold)}
+.pay-item h4{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--silver);margin-bottom:.3rem}
+.pay-item p{font-size:.82rem;line-height:1.6;color:var(--text)}
+.pay-note{margin-top:1.5rem;font-size:.75rem;line-height:1.6;color:var(--silver-dim);text-align:center;letter-spacing:.05em}
+
+#contact{background:var(--black)}
+#contact .sec-wrap{max-width:500px}
+.contact-wrap p{font-size:.88rem;line-height:1.8;color:var(--text);margin-bottom:2rem}
+.contact-btns{display:flex;flex-direction:column;gap:1rem}
+
+footer{
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  padding:2.5rem 1.5rem;
+  text-align:center;
+}
+.footer-logo{
+  font-family:'Cormorant Garamond','Georgia',serif;
+  font-size:1.4rem;font-weight:300;
+  letter-spacing:.3em;
+  color:var(--silver);margin-bottom:.8rem;
+}
+.footer-tag{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver-dim);margin-bottom:1.5rem}
+.footer-copy{font-size:.62rem;letter-spacing:.15em;color:rgba(136,136,136,.5);text-transform:uppercase}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:.4;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.4)}
+}
+
+.img-placeholder{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:linear-gradient(145deg,var(--surface2),var(--surface3));
+  color:var(--silver-dim);gap:.5rem;
+}
+.img-placeholder svg{opacity:.28}
+.img-placeholder span{font-size:.65rem;letter-spacing:.3em;opacity:.4;text-transform:uppercase}
+
+@media(max-width:380px){
+  nav{padding:1rem 1.2rem}
+  .nav-links{gap:1rem}
+  .nav-links a{font-size:.65rem}
+  section{padding:4rem 1.2rem}
+  .card-body{padding:1.1rem}
+  .payment-box{padding:1.8rem 1.2rem}
+}
+@media(min-width:640px){
+  .card-actions{flex-direction:row}
+  .btn{flex:1}
+  .contact-btns{flex-direction:row}
+  .contact-btns .btn{min-width:200px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+
+</head>
+<body>
+
+<!-- SVG DEFS — define once, use everywhere (zero SVG repetition) -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="ico-tg" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.67l-2.95-.924c-.64-.203-.658-.64.136-.954l11.57-4.461c.537-.194 1.006.131.968.89z"/></symbol>
+    <symbol id="ico-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+    <symbol id="ico-book" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1" fill="none" stroke="currentColor" stroke-width="1"/><path d="M9 3v18M3 9h6M3 15h6" fill="none" stroke="currentColor" stroke-width="1"/></symbol>
+    <symbol id="ico-lines" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h10M4 18h8" fill="none" stroke="currentColor" stroke-width="1"/></symbol>
+  </defs>
+</svg>
+
+<!-- NAV -->
+<nav id="nav" role="navigation" aria-label="Navegación principal">
+  <a href="#hero" class="nav-logo" aria-label="Human Code inicio">
+    <div class="nav-logo-brain">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="54" stroke="rgba(184,151,42,0.25)" stroke-width="1.2"/>
+        <path d="M52 28 C36 30,28 42,28 56 C28 66,33 73,40 78 C35 86,38 94,48 96" stroke="url(#goldGradient)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M45 38 C36 44,36 54,44 60" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M43 67 C36 72,38 82,48 86" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M68 28 C84 30,92 42,92 56 C92 66,87 73,80 78 C85 86,82 94,72 96" stroke="url(#goldGradient)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M75 38 C84 44,84 54,76 60" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M77 67 C84 72,82 82,72 86" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="60" y1="24" x2="60" y2="96" stroke="rgba(220,220,220,0.18)" stroke-width="1"/>
+        <text x="60" y="64" text-anchor="middle" font-size="13" letter-spacing="4" fill="#d4af5a" font-family="Rajdhani, sans-serif">HC</text>
+        <defs>
+          <linearGradient id="goldGradient" x1="0" y1="0" x2="120" y2="120">
+            <stop offset="0%" stop-color="#f0d060"/>
+            <stop offset="50%" stop-color="#d4af5a"/>
+            <stop offset="100%" stop-color="#8f6a16"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  </a>
+</nav>
+
+<!-- HERO -->
+<section id="hero" aria-label="Inicio">
+  <div class="hero-spotlight" aria-hidden="true"></div>
+  <div class="hero-arc" aria-hidden="true"></div>
+  <div class="hero-floor" aria-hidden="true"></div>
+  <div class="hero-vline-top" aria-hidden="true"></div>
+  <div class="hero-vline-bot" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" aria-hidden="true">Plataforma intelectual</p>
+    <h1 class="hero-title">
+      <span>HUMAN</span>
+      <span class="title-sep" aria-hidden="true"></span>
+      <span>CODE</span>
+    </h1>
+    <div class="hero-divider" aria-hidden="true"></div>
+    <p class="hero-tagline">Psicología y educación<br>para la vida moderna real.</p>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy" aria-label="Filosofía">
+<div class="sec-wrap">
+  <p class="section-label">Nuestra filosofía</p>
+  <h2 class="section-title">El conocimiento<br>como herramienta real.</h2>
+  <div class="section-divider" aria-hidden="true"></div>
+  <div class="philosophy-grid">
+    <div class="phil-card">
+      <h3>Psicología aplicada</h3>
+      <p>Comprender el comportamiento humano no es un lujo intelectual — es una ventaja estratégica en cada área de la vida. Nuestros recursos traducen la ciencia psicológica en herramientas concretas y accionables.</p>
+    </div>
+    <div class="phil-card">
+      <h3>Educación sin filtros</h3>
+      <p>El conocimiento que importa rara vez está en los sistemas formales. HUMAN CODE existe para cerrar esa brecha: contenido directo, profundo y diseñado para el mundo real.</p>
+    </div>
+    <div class="phil-card">
+      <h3>Evolución intelectual</h3>
+      <p>Cada libro de nuestra colección es una inversión en claridad mental, autonomía emocional y expansión de perspectiva. Aprender distinto es vivir distinto.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CATALOG -->
+<section id="catalog" aria-label="Catálogo de libros">
+<div class="sec-wrap">
+  <p class="section-label">Colección</p>
+  <h2 class="section-title">Catálogo</h2>
+  <div class="section-divider" aria-hidden="true"></div>
+  <div class="catalog-intro">
+    <p>Cada título es una herramienta de transformación personal. Selecciona el que necesitas, contáctanos y recibe tu acceso de forma inmediata.</p>
+  </div>
+  <div class="books-grid" id="booksGrid">
+
+    <!-- BOOK CARD 1 -->
+    <article class="book-card">
+      <div class="swiper-wrap">
+        <div class="swiper-track">
+          <div class="swiper-slide">
+            <img src="portada.webp" alt="Portada — Cómo el Entorno Moderno Programa la Mente Humana" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-tag">Psicología</p>
+        <h3 class="card-title">Cómo el Entorno Moderno Programa la Mente Humana</h3>
+        <p class="card-desc">Descubre cómo el mundo que te rodea moldea tus pensamientos, emociones y decisiones sin que lo notes. Una guía directa para entender y reprogramar tu mente en la era moderna.</p>
+        <p class="card-price">12 <span>USDT</span></p>
+        <div class="card-actions">
+          <a href="https://t.me/HumancodeNet" target="_blank" rel="noopener noreferrer" class="btn btn-tg">
+            <svg width="16" height="16" aria-hidden="true"><use href="#ico-tg"/></svg>
+            Comprar vía Telegram
+          </a>
+          <a href="https://wa.me/message/ZUZ4PI254OXXC1" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
+            <svg width="16" height="16" aria-hidden="true"><use href="#ico-wa"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- BOOK CARD 2 -->
+    <article class="book-card">
+      <div class="swiper-wrap">
+        <div class="swiper-track">
+          <div class="swiper-slide">
+            <div class="img-placeholder">
+              <svg width="40" height="40" aria-hidden="true"><use href="#ico-book"/></svg>
+              <span>Portada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-tag">Educación</p>
+        <h3 class="card-title">Título del Libro 2</h3>
+        <p class="card-desc">Descripción concisa del libro. Qué aprende el lector, qué transforma en su vida. Directo y poderoso.</p>
+        <p class="card-price">20 <span>USDT</span></p>
+        <div class="card-actions">
+          <a href="https://t.me/HumancodeNet" target="_blank" rel="noopener noreferrer" class="btn btn-tg">
+            <svg width="16" height="16" aria-hidden="true"><use href="#ico-tg"/></svg>
+            Comprar vía Telegram
+          </a>
+          <a href="https://wa.me/message/ZUZ4PI254OXXC1" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
+            <svg width="16" height="16" aria-hidden="true"><use href="#ico-wa"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- BOOK CARD 3 -->
+    <article class="book-card">
+      <div class="swiper-wrap">
+        <div class="swiper-track">
+          <div class="swiper-slide">
+            <div class="img-placeholder">
+              <svg width="40" height="40" aria-hidden="true"><use href="#ico-book"/></svg>
+              <span>Portada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-tag">Comportamiento</p>
+        <h3 class="card-title">Título del Libro 3</h3>
+        <p class="card-desc">Descripción concisa del libro. Qué aprende el lector, qué transforma en su vida. Directo y poderoso.</p>
+        <p class="card-price">18 <span>USDT</span></p>
+        <div class="card-actions">
+          <a href="https://t.me/HumancodeNet" target="_blank" rel="noopener noreferrer" class="btn btn-tg">
+            <svg width="16" height="16" aria-hidden="true"><use href="#ico-tg"/></svg>
+            Comprar vía Telegram
+          </a>
+          <a href="https://wa.me/message/ZUZ4PI254OXXC1" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
+            <svg width="16" height="16" aria-hidden="true"><use href="#ico-wa"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</div>
+</section>
+
+<!-- PAYMENT -->
+<section id="payment" aria-label="Métodos de pago">
+<div class="sec-wrap">
+  <p class="section-label">Métodos de pago</p>
+  <h2 class="section-title">Cómo adquirir</h2>
+  <div class="section-divider" aria-hidden="true"></div>
+  <div class="payment-box">
+    <div class="pay-item">
+      <div class="pay-icon" aria-hidden="true">◈</div>
+      <div>
+        <h4>USDT TRC20 — Internacional</h4>
+        <p>Método principal para clientes internacionales. Rápido, seguro y sin intermediarios. Al contactarnos te compartimos la dirección de pago de forma privada.</p>
+      </div>
+    </div>
+    <div class="pay-item">
+      <div class="pay-icon" aria-hidden="true">◇</div>
+      <div>
+        <h4>Nequi — Colombia</h4>
+        <p>Disponible para clientes en Colombia. Solicita los datos de pago directamente por Telegram o WhatsApp de forma privada.</p>
+      </div>
+    </div>
+    <div class="pay-item">
+      <div class="pay-icon" aria-hidden="true">◉</div>
+      <div>
+        <h4>Proceso de compra</h4>
+        <p>Contáctanos → indica el título → recibe los datos de pago → confirma tu transacción → recibe acceso inmediato a tu contenido.</p>
+      </div>
+    </div>
+    <p class="pay-note">Los datos de pago se comparten exclusivamente de forma privada por seguridad.</p>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" aria-label="Contacto">
+<div class="sec-wrap">
+  <p class="section-label">Contacto directo</p>
+  <h2 class="section-title">Conecta con<br>nosotros</h2>
+  <div class="section-divider" aria-hidden="true"></div>
+  <div class="contact-wrap">
+    <p>¿Tienes dudas sobre algún título o método de pago? Estamos disponibles por Telegram y WhatsApp. Respondemos con rapidez.</p>
+    <div class="contact-btns">
+      <a href="https://t.me/HumancodeNet" target="_blank" rel="noopener noreferrer" class="btn btn-tg">
+        <svg width="16" height="16" aria-hidden="true"><use href="#ico-tg"/></svg>
+        Telegram
+      </a>
+      <a href="https://wa.me/message/ZUZ4PI254OXXC1" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
+        <svg width="16" height="16" aria-hidden="true"><use href="#ico-wa"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">HUMAN CODE</p>
+  <p class="footer-tag">Psicología · Educación · Evolución</p>
+  <p class="footer-copy">&copy; 2025 Human Code · Todos los derechos reservados</p>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+// ── NAV SCROLL (rAF throttled) ──
+var nav=document.getElementById('nav');
+var ticking=false;
+function onScroll(){
+  if(!ticking){
+    requestAnimationFrame(function(){
+      nav.classList.toggle('scrolled',window.scrollY>60);
+      ticking=false;
+    });
+    ticking=true;
+  }
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+
+// ── SMOOTH SCROLL (JS-controlled, respects prefers-reduced-motion) ──
+var prefersReduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var target=document.querySelector(this.getAttribute('href'));
+    if(!target)return;
+    e.preventDefault();
+    if(prefersReduced){target.scrollIntoView();return;}
+    target.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+
+// ── CARD SWIPER (touch + click) ──
+document.querySelectorAll('.swiper-wrap').forEach(function(wrap){
+  var track=wrap.querySelector('.swiper-track');
+  var dots=wrap.querySelectorAll('.swipe-dot');
+  var total=track.children.length;
+  var cur=0;
+  var sx=0,sy=0,moving=false;
+
+  function go(n){
+    cur=(n+total)%total;
+    track.style.transform='translateX(-'+cur*100+'%)';
+    dots.forEach(function(d,i){d.classList.toggle('active',i===cur)});
+  }
+
+  var prevBtn=wrap.querySelector('.prev');
+  var nextBtn=wrap.querySelector('.next');
+  if(prevBtn)prevBtn.addEventListener('click',function(e){e.stopPropagation();go(cur-1)});
+  if(nextBtn)nextBtn.addEventListener('click',function(e){e.stopPropagation();go(cur+1)});
+  dots.forEach(function(d,i){d.addEventListener('click',function(){go(i)})});
+
+  track.addEventListener('touchstart',function(e){
+    sx=e.touches[0].clientX;
+    sy=e.touches[0].clientY;
+    moving=false;
+  },{passive:true});
+
+  track.addEventListener('touchmove',function(e){
+    if(!moving){
+      var dx=Math.abs(e.touches[0].clientX-sx);
+      var dy=Math.abs(e.touches[0].clientY-sy);
+      if(dx>dy&&dx>8){moving=true;}
+    }
+  },{passive:true});
+
+  track.addEventListener('touchend',function(e){
+    var dx=sx-e.changedTouches[0].clientX;
+    if(moving&&Math.abs(dx)>36)go(cur+(dx>0?1:-1));
+    moving=false;
+  },{passive:true});
+});
+
+})();
+</script>
+</body>
+</html>
